@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //string number null undefined boolean object function
+
+    'use strict';
+    function clone(obj){
+        var tmp;
+        if(typeof obj == 'object'){
+            if(obj == 'null'){
+                tmp = null;
+            }else if(obj instanceof Array){//isPropertyOf
+                tmp=[];
+                for(var i=0; i<obj.length; i++){
+                    tmp.push(clone(obj[i]))
+                }
+            }else{
+                tmp={};
+                for(var i in obj){
+                    tmp[i] = clone(obj[i]);
+                }
+            }
+        }else{
+            tmp = obj
+        }
+
+        return tmp;
+    }
+
+    var str = 'get-element-by-id';
+    /*var arr = str.split('-');
+    console.log(arr);
+    var tmp='';
+    for(var i=0; i<arr.length;i++){
+        if(i!==0){
+            tmp+=arr[i].substr(0,1).toUpperCase()+arr[i].substr(1);
+        }else{
+            tmp += arr[0];
+        }
+    }
+    console.log(tmp);*/
+
+    str = str.replace(/(-)(\w)/g,function(a,b,c){
+        console.log(a+','+b+','+c);
+        return a.charAt(1).toUpperCase()
+    });
+
+    var str2 = '{"name":"zhangsan","age":"23"}';
+    console.log( JSON.stringify(JSON.parse(str2)));
+
+
+    //yy/mm/dd
+    /*Function.prototype.delay=function(time){
+        var that = this;
+        setTimeout(function(){
+            that();
+        },time)
+    };
+    function abc(){
+        document.write('这是可以延迟执行的');
+    }
+
+    abc.delay(1000);
+    */
+
+    String.prototype.format=function(fmt){
+        var cur = new Date(this);
+        var dates={
+            y:cur.getFullYear(),
+            m:cur.getMonth()+1,
+            d:cur.getDate(),
+            h:cur.getHours(),
+            M:cur.getMinutes(),
+            s:cur.getSeconds()
+        };
+
+        fmt = fmt.replace(/([ymdhMs])+/g,function(a,b){
+            if(b=='y'){
+                return dates[b].toString().substring(4-a.length);
+            }else{
+                if(a.length==2){
+                    var str = '0'+dates[b];//012 02
+                    return str.substring(str.length-2);
+                }else{
+                    return dates[b]
+                }
+            }
+        });
+        return fmt;
+    };
+    console.log('2016/12/7'.format('mm-dd-yyyy'));
+
+
+    var arr = [1,2,3,4,5,6];
+    arr.splice(1,0,'a','b','c');
+    console.log(arr);
+
+    var str3='abcdefg';
+    console.log(str3.slice(-4));
+
+
+</script>
+</body>
+</html>

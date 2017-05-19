@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html,body,p{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            position: relative;
+        }
+        .panel{
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 1px solid #cccccc;
+            -webkit-transition: transform .3s ease-out;
+            -moz-transition: transform .3s ease-out;
+            -ms-transition: transform .3s ease-out;
+            -o-transition: transform .3s ease-out;
+            transition: transform .3s ease-out;
+        }
+        .content{
+            height: 160px;
+            line-height: 160px;
+            text-align: center;
+        }
+        .panel p{
+            height: 20px;
+            line-height: 20px;
+        }
+        .nav span{
+            float: left;
+            width: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .panel1{
+            background: lightgreen;
+        }
+        .panel2{
+            background: lightseagreen;
+        }
+        .panel3{
+            background: lightcoral;
+        }
+        .panel4{
+            background: lightpink;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="panel panel1" data="">
+        <div class="content">1</div>
+        <p class="nav">
+            <span direct="left">&lt;</span>
+            <span direct="right">&gt;</span>
+            <span close>X</span>
+        </p>
+    </div>
+    <div class="panel panel2">
+        <div class="content">2</div>
+        <p class="nav"><span direct="left">&lt;</span><span direct="right">&gt;</span><span>X</span></p>
+    </div>
+    <div class="panel panel3">
+        <div class="content">3</div>
+        <p class="nav"><span direct="left">&lt;</span><span direct="right">&gt;</span><span>X</span></p>
+    </div>
+    <div class="panel panel4">
+        <div class="content">4</div>
+        <p class="nav"><span direct="left">&lt;</span><span direct="right">&gt;</span><span>X</span></p>
+    </div>
+    <div class="panel panel3">
+        <div class="content">5</div>
+        <p class="nav"><span direct="left">&lt;</span><span direct="right">&gt;</span><span>X</span></p>
+    </div>
+    <div class="panel panel4" data="num2">
+        <div class="content">6</div>
+        <p class="nav"><span direct="left">&lt;</span><span direct="right">&gt;</span><span>X</span></p>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/require.js/2.1.11/require.min.js"></script>
+<!--<script src="//cdn.bootcss.com/seajs/2.2.0/sea.js"></script>-->
+<script>
+    require(['pushPanel']);
+</script>
+</body>
+</html>
